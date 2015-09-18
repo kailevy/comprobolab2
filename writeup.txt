@@ -1,0 +1,22 @@
+Which behaviors did you implement?
+  I implemented the wall following, person following, and obstacle avoidance behaviors.
+For each behavior, what strategy did you use to implement the behavior?
+  Wall following: It checked the laserscanner at certain angles and, based on trigonometry, decided if it was parallel with a wall.
+    If it was, it moved forward. If it wasn't, it would turn.
+  Person following: It looked at the 30 degrees of laserscans in front of it, and used those readings to determine a center of mass.
+    Then, it moved towards the center of mass with proportional control.
+  Obstacle avoidance: It kept track of whether or not it's desired direction, as well as left and right, were clear. If the desired
+    direction was not clear, it turned to a clear direction and moved until the desired was clear again.
+For the finite state controller, what were the states?  What did the robot do in each state?  How did you combine and how did you detect when to transition between behaviors?
+  The states were wall following and person following, and it followed the behaviors described above. I used the suggested transition,
+    that the robot would track a person if it sensed something in front of it, otherwise try to wall-follow.
+How did you structure your code?
+  I used object-oriented practices to implement the robot behaviors.
+What if any challenges did you face along the way?
+  I had a lot of trouble keeping track of the proper laserscans with the obstacle avoidance. I found that using a while loop to
+    turn 90 degrees could seriously impact the accuracy of the scan readings.
+What would you do to improve your project if you had more time?
+  I would probably change my method for wall following to use proportional control or PID control, and try to handle turns properly.
+    I would also be interested in changing the obstacle avoidance algorithm to use the 'potential fields' idea that was suggested.
+Did you learn any interesting lessons for future robotic programming projects?
+  I learned of ways to combine behaviors using object-oriented practices. Also, the dangers of poorly designed callbacks.
